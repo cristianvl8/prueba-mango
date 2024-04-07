@@ -47,19 +47,19 @@ export default function useDragging(minRange: number, maxRange: number, defaultV
     const clientX = (e.type.includes('touch') ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX);
     const newPosition = ((clientX - rect.left) / rect.width) * (range.max - range.min) + range.min;
 
-    // Asegura que newPosition no exceda los límites del rango del slider.
+    // Asegura que la nueva posición del thumb no supere los límites de rango del slider.
     const newThumbValue = Math.min(Math.max(newPosition, range.min), range.max);
 
-    // evita colisiones entre los dos thumbs del slider
+    // Evita colisiones entre los dos thumbs del slider
     if (dragging === 'min') {
       setValues((prevValues) => ({
         ...prevValues,
-        min: Math.min(newThumbValue, prevValues.max - 1), // Asegura una separación mínima
+        min: Math.min(newThumbValue, prevValues.max - 1),
       }));
     } else {
       setValues((prevValues) => ({
         ...prevValues,
-        max: Math.max(newThumbValue, prevValues.min + 1), // Asegura una separación mínima
+        max: Math.max(newThumbValue, prevValues.min + 1),
       }));
     }
     };
@@ -83,7 +83,7 @@ export default function useDragging(minRange: number, maxRange: number, defaultV
         // Obtiene el índice del valor actual del "thumb" máximo para evitar la superposición
         const maxValueIndex = fixedValues.indexOf(values.max);
         if (closestIndex >= maxValueIndex) {
-        // Si el "thumb" mínimo intenta moverse al "thumb" máximo o más allá, lo detenemos en el valor anterior
+        // Si el "thumb" mínimo intenta moverse al "thumb" máximo o más allá, se para en el valor anterior
         closestValue = fixedValues[Math.max(0, maxValueIndex - 1)];
         }
         setValues(prevValues => ({ ...prevValues, min: closestValue }));
@@ -93,7 +93,7 @@ export default function useDragging(minRange: number, maxRange: number, defaultV
         // Obtiene el índice del valor actual del "thumb" mínimo para evitar la superposición
         const minValueIndex = fixedValues.indexOf(values.min);
         if (closestIndex <= minValueIndex) {
-        // Si el "thumb" máximo intenta moverse al "thumb" mínimo o más allá, lo detenemos en el valor siguiente
+        // Si el "thumb" máximo intenta moverse al "thumb" mínimo o más allá, se para en el valor anterior
         closestValue = fixedValues[Math.min(fixedValues.length - 1, minValueIndex + 1)];
         }
         setValues(prevValues => ({ ...prevValues, max: closestValue }));
