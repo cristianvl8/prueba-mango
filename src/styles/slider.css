@@ -1,0 +1,87 @@
+.slider-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.slider {
+  width: 80%; /* Ajustado para dar espacio a las marcas y etiquetas */
+  max-width: 600px; /* Opcional: Añade un máximo si es necesario */
+  margin: 0 auto;
+  padding: 40px; /* Ajustado para menos padding vertical */
+  overflow: visible; /* Cambiado para permitir ver marcas fuera del contenedor */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Añadido para apilar etiquetas y marcas verticalmente */
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #999; /* Ajustado para contraste */
+  border-radius: 4px;
+}
+
+.slider-track {
+  position: absolute;
+  background-color: black;
+  height: 10px;
+  z-index: 2;
+}
+
+.slider-thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  top: -5px;
+  background-color: black;
+  border: 2px solid white; /* Ajustado para contraste */
+  border-radius: 50%;
+  cursor: grab;
+  /* transition: all 0.2s ease-in-out;  */
+  z-index: 3;
+}
+
+.slider-thumb:hover,
+.slider-thumb:active {
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  top: -7px;
+  cursor: grabbing;
+}
+
+.slider-label-min, .slider-label-max {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  top: 40px; /* Ajustado para bajar los números un poco más */
+}
+
+.slider-label-min {
+  left: -25px;
+}
+
+.slider-label-max {
+  right: -35px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+/* Estilos para las marcas de valores fijos */
+.slider-mark {
+  position: absolute;
+  bottom: -15px; /* Sube las marcas respecto al track */
+  width: 2px;
+  height: 10px;
+  background-color: black; /* Cambia el color a negro */
+  transform: translateX(-50%); /* Centra la marca en su posición exacta */
+}
+
