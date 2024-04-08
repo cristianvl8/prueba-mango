@@ -18,7 +18,8 @@ El proyecto consiste en desarrollar un custom slider con react.
 2. Escribe en la terminal npm i para instalar las dependencias necesarias
 3. Levanta el mock server con npm run mock:server
 4. Levante el cliente con npm run start
-5. Ve al navegador y dirígete a http://localhost:8080/
+5. Lanza los test con npm run test
+6. Ve al navegador y dirígete a http://localhost:8080/
 
 ## Herramientas utilizadas
 
@@ -41,6 +42,8 @@ como facilitado una serie de tests utilizando jest y react testing library.
 Mi principal problema en la prueba ha sido enfrentarme a montar el proyecto desde cero sin el habitual uso de algún CLI. Esto complica en gran 
 medida la prueba pero también aporta valor el hecho de montarlo desde 0 y ver todas sus complicaciones. Otro de los retos que he encontrado
 ha sido la gestión de eventos del raton para controlar el slider así como los eventos "touch" de dispositivos táctiles.
+Por último, a la hora de realizar algunos test unitarios en el componente slider he encontrado problemas a la hora de simular con precisión
+los eventos de drag. De hecho uno de los test (el número 4 falla por esto mismo).
 
 ## Mejoras
 
