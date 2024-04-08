@@ -10,7 +10,7 @@ export default function Slider ({ minRange, maxRange, defaultValues, fixedValues
   const handleChangeMinValue = () => {
     const newValue = prompt("Enter the new minimum value:", Math.round(values.min).toString());
     if (newValue === null) {
-      // The user pressed "Cancel" in the prompt.
+      // Se pulsa cancelar en el prompt
       return;
     } else if (isNaN(Number(newValue)) || newValue.trim() === "") {
       alert("Please enter a valid number.");
@@ -29,7 +29,7 @@ export default function Slider ({ minRange, maxRange, defaultValues, fixedValues
   const handleChangeMaxValue = () => {
     const newValue = prompt("Enter the new maximum value:", Math.round(values.max).toString());
     if (newValue === null) {
-      // The user pressed "Cancel" in the prompt.
+      // Se pulsa cancelar en el prompt
       return;
     } else if (isNaN(Number(newValue)) || newValue.trim() === "") {
       alert("Please enter a valid number.");
